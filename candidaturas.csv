@@ -1,0 +1,5 @@
+# Arquivo: candidaturas.csv
+# Responsabilidade: armazenar persistentemente os dados das candidaturas registradas pela aplicação.
+# Função principal: manter cada registro com os campos Empresa, Cargo, Data, Tipo, Status.
+# Por que existe: permite que os dados inseridos via meu_emprego.py sejam salvos entre execuções, e que a
+# função de análise gráfica leia e compute estatísticas com base nesses registros.
