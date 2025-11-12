@@ -1,0 +1,28 @@
+# 1. Clonar o repositório
+Recomendo fortemente clonar apenas a branch develop
+git clone <URL-do-repositório>
+
+# 2. Entrar no diretório do projeto
+cd <nome-do-projeto>
+
+# 3. Listar as branches remotas (sempre conferir em qual branch vc está’)
+git branch -a
+Verificar em qual branch você está:
+git branch
+# A branch com o asterisco (*) é a que está ativa
+
+# 4. Criar uma cópia local da branch 'develop' e mudar para ela
+# Se a branch remote já existe:
+git checkout develop
+
+# 5. Puxar as últimas alterações remotas para a branch local
+git pull origin develop
+
+# 6. Fazer alterações, adicionar arquivos, etc.
+git add . ou git add<arquivos> caso não queira subir todas mudanças
+git commit -m "Descrição das alterações (exemplo: feat: criei o novo botão de confirmação)"
+
+# 7. Enviar (push) sua branch local para o repositório remoto(recomendo sempre pra develop)
+git push origin develop
+
+
