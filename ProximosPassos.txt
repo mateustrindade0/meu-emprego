@@ -70,5 +70,5 @@ Use mensagens claras: tipo, assunto curto + corpo explicativo se precisar.
 
 Sempre integre sua branch de feature em develop antes de merge para main.
 
-Teste rápido antes da entrega
+Teste rápido antes da entrega 
 Verifique se sua aplicação roda em outro computador ou ambiente “limpo”: instale Python, execute, verifique se o CSV é criado, se o gráfico aparece. Esse teste garante que nada está “hardcoded” demais ou com ambiente específico.
