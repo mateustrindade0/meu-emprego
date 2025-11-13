@@ -1,74 +1,22 @@
-Próximos passos
+Próximos passos (enxuto)
 
-Definir os marcos (milestones)
-Esboce rapidamente quais partes você vai entregar e em que ordem, por exemplo:
+Status atual:
+- Tela inicial + cadastro funcionando
+- Persistência no MongoDB Atlas (CSV como fallback)
 
-Módulo de cadastro simples funcionando com CSV
+1) Visualização dos registros (próxima entrega)
+- Ler do Mongo/CSV e exibir em um Treeview
+- Ações mínimas: atualizar, excluir (opcional)
 
-Tela de visualização (treeview) dos registros
+2) Análise (gráficos)
+- Contar candidaturas por status/tipo
+- Plotar gráfico de barras (Matplotlib)
 
-Tela de análise com gráfico (matplotlib)
+3) Documentação e relatório
+- README: instruções de setup (venv, pip, .env, execução)
+- Capturas de tela das 3 telas (menu, cadastro, gráficos)
+- Relatório: visão geral, explicação, resultados
 
-Refinamento UI, validações de formulário, organização do código
-
-Preparar relatório + capturas de tela
-Esse tipo de divisão ajuda a “quebrar” o trabalho em peças gerenciáveis.
-
-Criar branches para funcionalidades(Atualmente existe apenas main e develop no repo remoto)
-Já que você tem main e develop, para cada nova “parte” crie uma branch de feature, por exemplo:
-
-git checkout develop  
-git checkout -b feature/cadastro  
-
-
-Trabalhe nessa branch até que o cadastro funcione. Depois merge para develop, etc. Isso segue um padrão de branching profissional (como o modelo GitFlow — onde main é versão “pronta”, develop para integração, e features para desenvolvimento). 
-Atlassian
-+2
-GitKraken
-+2
-
-Esse fluxo deixa seu repositório organizado e evita confusões.
-
-Implementar funcionalidade básica primeiro (mínimo viável)
-Comece com o mais simples que atende os requisitos:
-
-Tela de cadastro com 5 campos + validação básica
-
-Armazenamento dos dados no candidaturas.csv, criação automática caso não exista
-
-Tela de menu funcionando com botões para navegar entre telas
-Esse “mínimo funcional” já cobre a lógica principal. Depois adicione extrações refinadas.
-
-Depois implementar visualização e análise
-Após o cadastro, implemente:
-
-Tela de visualização: leitura do CSV, mostra os registros em um Treeview (ou equivalente)
-
-Tela de análise: lê os dados, conta status e gera gráfico de barras com Matplotlib
-Garanta que isso funcione antes de “embelezar”.
-
-Refinamento + documentação
-Quando tudo funcionar:
-
-Adicione validações melhores (por exemplo: data em formato correto)
-
-Melhor aparência (layout Tkinter, espaçamento, título das janelas)
-
-Gere capturas de tela (menu, cadastro, gráfico) e coloque na pasta imagens/
-
-Atualize README (você já fez a parte “ideia/purpose”) para incluir instruções, dependências, como rodar
-
-Prepare relatório (.pdf ou .docx) com introdução, telas, explicação, gráfico, conclusão
-
-Versionamento e commits de qualidade
-
-Faça commits pequenos e temáticos (ex: “feat: Tela cadastro com campos implementados”) — isso facilita rastrear mudanças. 
-Medium
-+1
-
-Use mensagens claras: tipo, assunto curto + corpo explicativo se precisar.
-
-Sempre integre sua branch de feature em develop antes de merge para main.
-
-Teste rápido antes da entrega 
-Verifique se sua aplicação roda em outro computador ou ambiente “limpo”: instale Python, execute, verifique se o CSV é criado, se o gráfico aparece. Esse teste garante que nada está “hardcoded” demais ou com ambiente específico.
+Dicas rápidas
+- Não commitar .env
+- Usar venv e `pip install -r requirements.txt`

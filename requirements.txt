@@ -1,0 +1,85 @@
+# Dependências Python mínimas para executar a aplicação "Meu Emprego".
+# Recomendado instalar dentro de um virtualenv (venv).
+# Versões são sugeridas; ajuste se necessário.
+python-dotenv>=1.0.0  # carrega .env para os.environ
+pymongo>=4.0,<5.0     # driver MongoDB para Python
+dnspython>=2.0,<3.0   # necessário para suporte a URIs mongodb+srv (Atlas)
+
+# Dependência opcional para a tela de análise (gráficos). Instale somente se
+# for implementar/usar a análise com Matplotlib.
+# matplotlib>=3.0
+
+
+
+
+# ativar (se existir activate)
+source .venv/bin/activate
+python meu_emprego.py
+
+
+ou .venv/bin/python meu_emprego.py
+
+Sequência curta (copie/cole cada bloco na ordem, dentro da pasta do projeto)
+
+1.Verificar o Python do venv e o pip
+
+.venv/bin/python --version
+.venv/bin/python -m pip --version.
+
+2.Garantir dependências (faça isso só se não tiver feito antes ou após recriar o venv)
+
+.venv/bin/python -m pip install --upgrade pip setuptools wheel
+.venv/bin/python -m pip install -r requirements.txt.
+
+3.Conferir rapidamente o .env (ver se a URI está definida)
+grep -E '^MEU_EMPREGO_MONGO_URI' .env || echo "MEU_EMPREGO_MONGO_URI not set in .env"
+# opcional: ver primeiras linhas
+sed -n '1,40p' .env.
+
+4.Teste rápido de conexão (não abre GUI) — mostra se vai usar Mongo ou CSV
+
+.venv/bin/python - <<'PY'
+from dotenv import load_dotenv
+import os
+from meu_emprego import DataStore
+load_dotenv(dotenv_path='.env')
+mongo_uri = os.environ.get('MEU_EMPREGO_MONGO_URI')
+ds = DataStore(mongo_uri=mongo_uri, db_name=os.environ.get('MEU_EMPREGO_DB_NAME','meu_emprego'))
+print('use_mongo:', ds.use_mongo)
+print('test_connection:', ds.test_connection())
+PY .
+
+Se use_mongo: True e test_connection() retornar ok, você está pronto para salvar no DB.
+Se use_mongo: False, confira output (pymongo ausente ou erro de conexão); verifique passo 2/3.
+Rodar a GUI (use o mesmo Python do venv)
+
+5. Rodar a GUI (use o mesmo Python do venv)
+
+.venv/bin/python meu_emprego.py.
+
+
+
+
+
+CASO QUEIRA INSERIR UM REGISTRO DE TESTE SEM ABRIR A GUI USE ISSO.
+
+
+.venv/bin/python - <<'PY'
+from dotenv import load_dotenv
+import os
+from meu_emprego import DataStore
+load_dotenv(dotenv_path='.env')
+ds = DataStore(mongo_uri=os.environ.get('MEU_EMPREGO_MONGO_URI'), db_name=os.environ.get('MEU_EMPREGO_DB_NAME','meu_emprego'))
+print('use_mongo:', ds.use_mongo)
+if ds.use_mongo:
+    print(ds.insert_candidatura({
+        "empresa":"TesteAutomático",
+        "cargo":"Dev Teste",
+        "data":"2025-11-13",
+        "tipo":"Remoto",
+        "status":"Inscrito",
+        "observacoes":"inserção automática para teste"
+    }))
+else:
+    print('Fallback CSV')
+PY

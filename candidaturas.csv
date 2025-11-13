@@ -3,3 +3,10 @@
 # Função principal: manter cada registro com os campos Empresa, Cargo, Data, Tipo, Status.
 # Por que existe: permite que os dados inseridos via meu_emprego.py sejam salvos entre execuções, e que a
 # função de análise gráfica leia e compute estatísticas com base nesses registros.
+teste,teste,2025-11-13,Remoto,Inscrito,
+Empresa Ifood,Estágio em LLM,2025-11-13,Remoto,Inscrito,
+sad,asdas,2025-11-13,,Inscrito,
+teste 3,dev jr,2025-11-13,Presencial,Inscrito,
+aaa,aaa,2025-11-13,Híbrido,Inscrito,
+aaa,aa,2025-11-13,Remoto,Inscrito,aa
+aa,aa,2025-11-13,,Inscrito,
