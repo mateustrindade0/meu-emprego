@@ -1,3 +1,5 @@
+Commits.txt
+
 Guia rápido de Git (enxuto)
 
 # Clonar

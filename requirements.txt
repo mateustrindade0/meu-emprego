@@ -1,13 +1,16 @@
 # Dependências Python mínimas para executar a aplicação "Meu Emprego".
 # Recomendado instalar dentro de um virtualenv (venv).
 # Versões são sugeridas; ajuste se necessário.
-python-dotenv>=1.0.0  # carrega .env para os.environ
-pymongo>=4.0,<5.0     # driver MongoDB para Python
-dnspython>=2.0,<3.0   # necessário para suporte a URIs mongodb+srv (Atlas)
 
-# Dependência opcional para a tela de análise (gráficos). Instale somente se
-# for implementar/usar a análise com Matplotlib.
+# Dependências do projeto (apenas pacotes). Instale dentro do venv:
+python-dotenv>=1.0.0
+pymongo>=4.0,<5.0
+dnspython>=2.0,<3.0
+
+# Dependência opcional para gráficos (se for implementar a área de análise):
 # matplotlib>=3.0
+
+# Observação: comandos de execução e instruções estão no README.md.
 
 
 

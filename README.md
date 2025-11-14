@@ -75,4 +75,27 @@ Se `use_mongo: True` e `test_connection()` retornar ok, a GUI gravará no MongoD
 - Mensagem sobre `/home/.../.deno/envexport` vem do seu arquivo de configuração do shell e não afeta o app; remova a linha que tenta dar `source` se quiser parar de ver a mensagem.
 - Se a aplicação estiver salvando em CSV, normalmente é porque o Python que foi usado para executar não tinha `pymongo` instalado ou a conexão ao Mongo falhou. Use o binário do `.venv` mostrado acima para garantir consistência.
 
+## Para o desenvolvedor responsável pelos gráficos (implementador)
+
+Foi deixada uma área reservada para gráficos no dashboard (`MainWindow`). O
+trabalho de implementação dos gráficos foi delegado para outro desenvolvedor.
+Siga estas instruções:
+
+- Abra `assets/GRAPH_GUIDE.md` — contém um guia técnico passo-a-passo e um
+	snippet de exemplo (matplotlib + FigureCanvasTkAgg) para embutir gráficos no
+	painel direito do `MainWindow`.
+- Instale `matplotlib` no ambiente e adicione a dependência ao `requirements.txt`:
+
+```bash
+.venv/bin/python -m pip install matplotlib
+```
+
+- Use `DataStore.list_candidaturas()` (em `meu_emprego.py`) para obter os dados
+	e agrupar por `status`/`tipo` para os gráficos.
+- Tenha atenção à responsividade — use debounce em eventos de resize e evite
+	redesenhar o gráfico a cada pixel.
+
+Quando terminar, adicione capturas de tela dos gráficos ao relatório final e
+faça um PR com as alterações no dashboard.
+
 Se quiser, posso adicionar um script `run.sh` que automatize os passos de verificação e só abra a GUI quando a conexão estiver OK — quer que eu o adicione?
